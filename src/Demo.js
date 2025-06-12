@@ -9,17 +9,15 @@ const StateUpdateDemo = () => {
   useEffect(() => {
     // errors = []
     setErrors((prev) => [...prev, "Error 1A - " + Date.now()]);
-    // errors = []
     setErrors((prev) => [...prev, "Error 2A - " + Date.now()]);
-    // errors = []
+
 
     // Simulating a second async operation
     const timeoutId = setTimeout(() => {
-      // errors = []
-      setErrors([...errors, "Error 1B - " + Date.now()]);
+      setErrors((prev) => [...prev, "Error 1B - " + Date.now()]);
+      setErrors((prev) => [...prev, "Error 2B - " + Date.now()]);
     }, 100);
 
-    // errors = []
     return () => clearTimeout(timeoutId);
   }, [trigger]);
 
